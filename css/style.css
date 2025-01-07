@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+/*共通部分*/
+html{
+    font-size:100%;
+    background-color: antiquewhite;
+}
+body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","BIZ UDPGothic",sans-serif;
+    line-height:1.7;
+    color:#432;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width:100%;
+}
+
+/*レイアウト*/
+.align-center{
+    text-align: center;
+}
+
+/*見出し*/
+.font-english{
+    font-family:'Philosopher',sans-serif;
+    font-weight: normal;
+}
+.page-title,
+.heading-larger{
+    text-align: center;
+}
+.page-title{
+    font-size:1.5rem;
+    margin-top:2rem;
+    line-height:1.4;
+}
+.heading-larger{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.cover{
+    background-size:cover;
+    background-position:center bottom;
+    /*height: 1000px;
+}
+.cover-home{
+    background-color: antiquewhite;*/
+}
+
+/*ボタン*/
+.btn{
+    display:inline-block;
+    font-size:1.2rem;
+    background-color:rgb(221, 125, 0);
+    color:#fff;
+    border-radius: 8px;
+    padding: .75rem 1.5rem;
+    transition: .5s;
+}
+.btn:hover{
+    background-color: rgb(255, 155, 55);
+    translate: 5px -10px;
+}
+
+/*ヘッダー*/
+.page-header{
+    padding-top: .5rem;
+    line-height: 2;
+}
+.logo{
+    width: 210px;
+    max-width:15%;
+}
+.main-nav{
+    display: flex;
+    justify-content:center;
+    gap:2.5rem;
+    font-size:1.5rem;
+    list-style: none;
+}
+.main-nav a{
+    color:#432;
+}
+.main-nav a:hover{
+    color:rgb(221, 133, 0);
+}
+
+/*フッター*/
+.page-footer{
+    background-size:cover;
+    text-align: center;
+    font-size: 1rem;
+}
+.h3tag{
+    font-size:1.2rem;
+}
+.info{
+    width:100%;
+    max-width:  544px;
+    margin:auto;
+    padding: 0 1.5rem;
+    border-spacing: 0;
+}
+.info th,
+.info td{
+    border-bottom:1px solid #c9c2bc;
+}
+.info th{
+    text-align:left;
+    font-weight: normal;
+    padding: 1rem;
+}
+.info td{
+    padding:1rem;
+}
+
+/*本文*/
+.about{
+    max-width: 736px;
+    padding: 0 1.5rem;
+    margin:3rem auto 4rem;
+}
+.about p{
+    margin-bottom: 3rem;
+}
+.copyright{
+    background-color: rgb(202, 143, 84);
+    text-align: center;
+    padding:2rem 0;
+    margin-top: 5rem;
+    color:#fff;
+}
+.iframe{
+    width:80%;
+}
