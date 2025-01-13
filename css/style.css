@@ -21,6 +21,12 @@ img{
 .align-center{
     text-align: center;
 }
+.viewbtn{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+    
 
 /*見出し*/
 .font-english{
@@ -137,4 +143,71 @@ img{
     padding:2rem 0;
     margin-top: 5rem;
     color:#fff;
+}
+
+/*Q&Aページ*/
+.qabox{
+    width: 80%;
+    margin: 0 auto;
+}
+.qabox .qa{
+    padding: 20px 0;
+    border-bottom: 1px solid #c8c8c8;
+}
+.qabox .qa dt,
+.qabox .qa dd{
+    display: flex;
+    align-items: 15px 0;
+}
+.qabox .qa dt p{
+    text-align: left;
+    margin: 0;
+    padding-left: 15px;
+    font-weight: bold;
+    width: 100%;
+}
+.qabox .qa dd p{
+    text-align: left;
+    margin: 0;
+    padding-left: 15px;
+    width: 100%;
+}
+.qabox .qa:last-of-type{
+    border-bottom: none;
+}
+.qabox .qa dt::before{
+    content: "Q";
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background:#6699b7;
+    width: 2em;
+    height: 2em;
+}
+.qabox .qa dd::before{
+    content: "A";
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: #d65556;
+    width: 2em;
+    height: 2em;
+}
+@media screen and(max-width:960px){
+    .qabox{
+        width:95%;
+    }
+}
+.input_submit{
+    width:50px;
+    height:25px;
+    border: none;
+    border-radius: 7px;
+    color: #fff;
+    background-color: rgb(221, 125, 0);
+}
+.input_submit:hover{
+    background-color: rgb(221, 125, 0);
 }
