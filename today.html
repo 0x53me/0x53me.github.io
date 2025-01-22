@@ -24,7 +24,7 @@
             var month = today.getMonth()+1;
             var date = today.getDate();
             var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
-            let file_date = "DB_Ryosyoku - " + month + ".csv";
+            let file_date = "csv/DB_Ryosyoku - " + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
             const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));

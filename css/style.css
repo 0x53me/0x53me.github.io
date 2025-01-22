@@ -210,3 +210,19 @@ img{
 .input_submit:hover{
     background-color: rgb(221, 125, 0);
 }
+
+.post-cat{
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+}
+.post-cat a {
+    color: #432;
+    background-color: #faf7f0;
+    border-radius: 8px;
+    font-size: .875rem;
+    padding: .5rem .75rem   ;
+}
+.post-cat a:hover{
+    background-color: #c9c2bc;
+}
