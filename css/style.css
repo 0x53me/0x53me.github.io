@@ -194,9 +194,17 @@ img{
     width: 2em;
     height: 2em;
 }
-@media screen and(max-width:960px){
-    .qabox{
-        width:95%;
+@media screen and (max-width: 960px) {
+    .qabox {
+        width: 95%;
+    }
+    .post-cat {
+        display: block;
+        width: 100%;
+    }
+    .post-cat a {
+        display: block;
+        margin-bottom: .8rem; /* アイテム同士の間隔を調整 */
     }
 }
 .input_submit{
@@ -212,8 +220,8 @@ img{
 }
 
 .post-cat{
-    display: flex;
-    gap: .5rem;
+    display:flex;
+    gap: .8rem;
     list-style: none;
 }
 .post-cat a {
