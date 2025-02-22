@@ -1,125 +1,55 @@
-@charset "UTF-8";
-
-/*共通部分*/
-html{
-    font-size:100%;
-    background-color: antiquewhite;
+/*HTML*/
+h1{
+    margin-top: 25px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
 }
-body{
-    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","BIZ UDPGothic",sans-serif;
-    line-height:1.7;
-    color:#432;
+h2{
+    margin-top: 10px;
+    margin-left: 15px;
 }
-a{
-    text-decoration: none;
-}
-img{
-    max-width:100%;
+p{
+    margin-left: 15px;
+    font-family: "Noto Sans JP", serif;
 }
 
-/*レイアウト*/
-.align-center{
-    text-align: center;
+/*header*/
+.header{
+    background-color:rgb(238, 238, 238);
 }
-.viewbtn{
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-    
-
-/*見出し*/
-.font-english{
-    font-family:'Philosopher',sans-serif;
-    font-weight: normal;
-}
-.page-title,
-.heading-larger{
-    text-align: center;
-}
-.page-title{
-    font-size:1.5rem;
-    margin-top:2rem;
-    line-height:1.4;
-}
-.heading-larger{
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-.cover{
-    background-size:cover;
-    background-position:center bottom;
-    /*height: 1000px;
-}
-.cover-home{
-    background-color: antiquewhite;*/
-}
-
-/*ボタン*/
-.btn{
-    display:inline-block;
-    font-size:1.2rem;
-    background-color:rgb(221, 125, 0);
-    color:#fff;
-    border-radius: 8px;
-    padding: .75rem 1.5rem;
-    transition: .5s;
-}
-.btn:hover{
-    background-color: rgb(255, 155, 55);
-    translate: 5px -10px;
-}
-
-/*ヘッダー*/
-.page-header{
-    padding-top: .5rem;
-    line-height: 2;
+@media(min-width:500px){
+    .header{
+        display: flex;
+    }
 }
 .logo{
-    width: 210px;
-    max-width:15%;
+    width: 50px;
 }
-.main-nav{
+.nav{
+    margin-left: auto;
+    margin-top: auto;
+}
+.nav_menu_ul{
+    margin-top: 20px;
+    margin-bottom: 3px;
+    margin-right: 15px;
     display: flex;
-    justify-content:center;
-    gap:2.5rem;
-    font-size:1.5rem;
     list-style: none;
 }
-.main-nav a{
-    color:#432;
+.nav_menu_li a{
+    font-family: "Noto Sans JP", serif;
+    text-decoration: none;
+    color: #000;
+    padding: 5px;
 }
-.main-nav a:hover{
-    color:rgb(221, 133, 0);
+.nav_menu_li a:hover{
+    text-decoration-line: underline;
+    color: rgb(100, 100, 100);
 }
-
-/*フッター*/
-.page-footer{
-    background-size:cover;
-    text-align: center;
-    font-size: 1rem;
-}
-.h3tag{
-    font-size:1.2rem;
-}
-.info{
-    width:100%;
-    max-width:  544px;
-    margin:auto;
-    padding: 0 1.5rem;
-    border-spacing: 0;
-}
-.info th,
-.info td{
-    border-bottom:1px solid #c9c2bc;
-}
-.info th{
-    text-align:left;
-    font-weight: normal;
-    padding: 1rem;
-}
-.info td{
-    padding:1rem;
+/*content*/
+.content{
+    margin-left: 5px;
 }
 .twitter-tweet{
     padding: 0 15px;
@@ -128,109 +58,100 @@ img{
     text-align: center;
 }
 
-/*本文*/
-.about{
-    max-width: 736px;
-    padding: 0 1.5rem;
-    margin:3rem auto 4rem;
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
-.about p{
-    margin-bottom: 3rem;
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
+
+.btn:active {
+    background-color: #004494;
+    transform: scale(0.98);
+}
+
+/* ボタンを横並びにする */
+.btn-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+/*footer*/
 .copyright{
-    background-color: rgb(202, 143, 84);
+    background-color:rgb(238, 238, 238);
     text-align: center;
     padding:2rem 0;
     margin-top: 5rem;
-    color:#fff;
-}
-/*Q&Aページ*/
-.qabox{
-    width: 80%;
-    margin: 0 auto;
-}
-.qabox .qa{
-    padding: 20px 0;
-    border-bottom: 1px solid #c8c8c8;
-}
-.qabox .qa dt,
-.qabox .qa dd{
-    display: flex;
-    align-items: 15px 0;
-}
-.qabox .qa dt p{
-    text-align: left;
-    margin: 0;
-    padding-left: 15px;
-    font-weight: bold;
-    width: 100%;
-}
-.qabox .qa dd p{
-    text-align: left;
-    margin: 0;
-    padding-left: 15px;
-    width: 100%;
-}
-.qabox .qa:last-of-type{
-    border-bottom: none;
-}
-.qabox .qa dt::before{
-    content: "Q";
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background:#6699b7;
-    width: 2em;
-    height: 2em;
-}
-.qabox .qa dd::before{
-    content: "A";
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background: #d65556;
-    width: 2em;
-    height: 2em;
-}
-@media screen and (max-width: 960px) {
-    .qabox {
-        width: 95%;
-    }
-    .post-cat {
-        display: block;
-        width: 100%;
-    }
-    .post-cat a {
-        display: block;
-        margin-bottom: .8rem; /* アイテム同士の間隔を調整 */
-    }
-}
-.input_submit{
-    width:50px;
-    height:25px;
-    border: none;
-    border-radius: 7px;
-    color: #fff;
-    background-color: rgb(221, 125, 0);
-}
-.input_submit:hover{
-    background-color: rgb(221, 125, 0);
+    color:#000;
 }
 
-.post-cat{
-    display:flex;
-    gap: .8rem;
+
+/* CSSコード */
+.wrap {
+    animation: fadein 3s forwards;
+  }
+  
+  @keyframes fadein {
+    0% {opacity: 0}
+    100% {opacity: 1}
+  }
+
+
+
+/*index.html*/
+.top_img{
+    max-width: 90%;
+    margin: auto;
+    display: block;
+    border-radius: 12px;
+}
+/*today.html*/
+.today_menu{
+    font-size: 1.2rem;
+}
+.today_menu,p{
+    line-height: 150%;
+}
+.tomorrow_btn{
+    text-align: right;
+    margin-right: 50px;
+}
+/*tomorrow.html*/
+.today_btn{
+    margin-left: 50px;
+}
+/*version.html*/
+.version-list {
     list-style: none;
+    padding: 0;
+    margin-left: 15px;
 }
-.post-cat a {
-    color: #432;
-    background-color: #faf7f0;
-    border-radius: 8px;
-    font-size: .875rem;
-    padding: .5rem .75rem   ;
+
+.version-list h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #007bff;
 }
-.post-cat a:hover{
-    background-color: #c9c2bc;
+
+.version-list ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.version-list li {
+    margin-bottom: 15px;
 }
