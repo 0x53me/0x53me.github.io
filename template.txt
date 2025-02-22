@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>新居浜高専 寮食Bot</title>
+        <link rel="icon" type="image/png" href="images/bacon.png">
+        <meta name="date" content="2025-02-21">
+        <meta name="description" content="新居浜高専学寮食堂非公式サイト">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!--CSS-->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--header-->
+        <header class="header">
+            <h1 style="font-family: Kosugi Maru,serif;"><a href="index.html"><img class="logo" src="images/gohan.png" alt="Home"></a> 新居浜高専学寮食堂(非公式)</h1>
+            <nav class="nav">
+                <span class="nav_toggle">
+                    <i></i><i></i><i></i>
+                </span>
+                <ul class="nav_menu_ul">
+                    <li class="nav_menu_li"><a href="/">Home</a></li>
+                    <li class="nav_menu_li"><a href="/News.html">News</a></li>
+                    <li class="nav_menu_li"><a href="/Version.html">Version</a></li>
+                    <li class="nav_menu_li"><a href="/Archive.html">Archive</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--content-->
+        <div class="content">
+        </div>
+        <!--footer-->
+        <footer class="footer">
+            <div class="copyright">
+                <small>&copy;2025 0x53me</small>
+            </div>
+        </footer>
+    </body>
+</html>
