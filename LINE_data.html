@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="shift-jis">
+        <title>新居浜高専 寮食 LINE_Data</title>
+        <link rel="icon" type="image/png" href="images/bacon.png">
+        <script>
+            async function loadCSV() {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth()+1;
+            var date = today.getDate();
+            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
+            let file_date = "csv/DB_" + year + "_" + month + ".csv";
+            const data = await fetch(file_date);
+            const resCSV = await data.text();
+            const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
+            const filteredData = dataCSV.filter(row => row[1]==date);
+            var display_data = filteredData.map(data => `<br>[朝食]<br>・${data[2]}<br>・${data[3]}<br>・${data[4]}<br><br>[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br><br>${data[11]}`).join('');
+            document.getElementById('display_data').insertAdjacentHTML('beforeend',display_data);
+            document.getElementById('display_date').insertAdjacentHTML('beforeend',display_date);
+            }
+            loadCSV();
+        </script>
+    </head>
+
+    <body>
+        <h1>新居浜高専 寮食Bot</h1>
+        <h2 id="display_date"></h2>
+        <p id="display_data"></p>
+    </body>
+</html>

@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset="shift-jis">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>新居浜高専 寮食 今日の献立</title>
+        <meta charset="UTF-8">
+
+        <title>新居浜高専 寮食 今月の献立</title>
         <!--ファビコン-->
         <link rel="icon" type="image/png" href="images/bacon.png">
-        <!--CSS-->
-        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-        <link rel="stylesheet" href="css/style.css">
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
         <style>
-            html{
-                line-height: 1.2rem;
-            }
             table th, table td{
                 border: solid 1px black;
-            }
-            p{
-                text-align: center;
             }
         </style>
         <script>
             async function loadCSV() {
-            var today = new Date();
-            var year = today.getFullYear();
-            var month = today.getMonth()+1;
-            var date = today.getDate();
-            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
+            const today = new Date();
+            const yaer = today.getFullYear();
+            const month = today.getMonth()+1;
+            const date = today.getDate();
+            const h1 = yaer + "年" + month + "月";
             let file_date = "csv/DB_" + year + "_" + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
             const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
             const filteredData = dataCSV.filter(row => row[1]==date);
-            var display_data = filteredData.map(data => `<br>[朝食]<br>・${data[2]}<br>・${data[3]}<br>・${data[4]}<br><br>[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br><br>${data[11]}`).join('');
-            document.getElementById('display_data').insertAdjacentHTML('beforeend',display_data);
-            document.getElementById('display_date').insertAdjacentHTML('beforeend',display_date);
+            const htmlData = dataCSV.map(data => `<tr>
+                                                    <!--<th>${data[0]}</th>-->
+                                                    <td>${data[1]}</td>
+                                                    <td>${data[2]}</td>
+                                                    <td>${data[3]}</td>
+                                                    <td>${data[4]}</td>
+                                                    <td>${data[5]}</td>
+                                                    <td>${data[6]}</td>
+                                                    <td>${data[7]}</td>
+                                                    <td>${data[8]}</td>
+                                                    <td>${data[9]}</td>
+                                                    <td>${data[10]}</td>
+                                                    <td>${data[11]}</td>
+                                                </tr>`).join('');
+            document.getElementById('tableCSV').insertAdjacentHTML('beforeend',htmlData);
+            document.getElementById('h1tag').insertAdjacentHTML('beforeend',h1);
             }
             loadCSV();
         </script>
@@ -62,17 +66,25 @@
                 </ul>
             </nav>
         </header>
-        <!--content-->
-        </div>
-        <div class="content wrap">
-            <div class="today_menu"><br><br>
-                <p id="display_date"></p>
-                <p id="display_data"></p>
+            <!--content-->
             </div>
-            <div class="tomorrow_btn">
-                <a class="btn tomorrow_btn" href="tomorrow.html">明日の献立を見る</a>
-            </div>
-        </div>
+        <h2 id="h1tag"></h2>
+        <table id="tableCSV">
+            <tr>
+             <!--<th></th>-->
+             <th>日付</th>
+             <th>朝食1</th>
+             <th>朝食2</th>
+             <th>朝食3</th>
+             <th>昼食1</th>
+             <th>昼食2</th>
+             <th>夕食1</th>
+             <th>夕食2</th>
+             <th>夕食3</th>
+             <th></th>
+             <th>備考</th>
+             </tr>
+        </table>
         <!--footer-->
         <footer class="footer">
             <div class="copyright">

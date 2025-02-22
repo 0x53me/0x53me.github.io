@@ -27,10 +27,11 @@
         <script>
             async function loadCSV() {
             var today = new Date();
+            today.setDate(today.getDate()+1);
             var year = today.getFullYear();
             var month = today.getMonth()+1;
             var date = today.getDate();
-            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
+            var display_date = '明日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
             let file_date = "csv/DB_" + year + "_" + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
@@ -69,8 +70,8 @@
                 <p id="display_date"></p>
                 <p id="display_data"></p>
             </div>
-            <div class="tomorrow_btn">
-                <a class="btn tomorrow_btn" href="tomorrow.html">明日の献立を見る</a>
+            <div class="today_btn">
+                <a class="btn today_btn" href="today.html">今日の献立を見る</a>
             </div>
         </div>
         <!--footer-->
