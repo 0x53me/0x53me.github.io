@@ -7,6 +7,7 @@ h1{
 }
 h2{
     margin-top: 10px;
+    margin-bottom: 20px;
     margin-left: 15px;
 }
 p{
@@ -256,6 +257,88 @@ p{
         margin:auto;
         padding:0 1.5rem;
     }
+        /*article*/
+        .post{
+            margin-bottom: 3rem;
+        }
+        .post-title {
+            font-family: 'Kosugi Maru', sans-serif; /* フォント指定 */
+            font-size: 28px; /* フォントサイズ */
+            font-weight: bold; /* 太字 */
+            color: #333; /* 文字色 */
+            margin-bottom: 20px; /* 下の余白 */
+        }
+        .post-info{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .post-cat{
+            display: flex;
+            margin-left: 15px;
+            gap: .5rem;
+            list-style: none;
+        }
+        .post-cat a {
+            color: #432;
+            background-color:rgb(238, 238, 238);
+            border-radius: 8px;
+            font-size: .875rem;
+            text-decoration: none;
+            padding: .5rem .75rem   ;
+        }
+        .post-cat a:hover{
+            background-color: #c9c2bc;
+        }
+        .post-date{
+            font-size: .875rem;
+        }
+        .post-thumbnail{
+            margin-left: 10%;
+            width: 50%;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+        .post p{
+            margin-bottom: 1.5rem;
+            line-height: 2;
+        }
+        .wrapper{
+            max-width: 1120px;
+            margin:auto;
+            padding:0 1.5rem;
+        }
+        .honbun {
+            font-family: "Noto Sans JP", serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+            padding: 15px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .toc {
+            padding: 15px;
+            border-style: solid;
+            border-color: #777;
+            border-width: 1px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 5px 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
 
 /*version.html*/
 .version-list {

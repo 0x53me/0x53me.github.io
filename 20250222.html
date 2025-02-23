@@ -34,19 +34,82 @@
         <!--content-->
         <div class="wrapper content">
             <article class="post">
-                <header><br>
-                    <h2 class="post-title">寮食Botを作った話。</h2>
+                <header>
+                    <h1 class="post-title">寮食Botを作った話。</h1>
                     <div class="post-info">
                         <ul class="post-cat">
                             <li><a href="#">寮食Bot</a></li>
                             <li><a href="#">記事</a></li>
                         </ul>
-                        <time class="post-date" dateime="2025-01-01">2025年2月22日</time>
+                        <time class="post-date" dateime="2025-01-01">2025年2月22日-2025年2月24日更新</time>
                     </div>
                 </header>
                 <img class="post-thumbnail" src="images/bacon.png" alt="bacon">
-                <p>
-                    寮食Botを作った話について。
+                <div class="honbun">
+                    <p>こんにちは! 0x53です。<br><br>寮食Botを作った経緯と作り方について書こうと思います。</p>
+                        <!-- 自動生成される目次 -->
+                        <nav class="toc">
+                            <h1>目次</h1>
+                            <ul id="toc-list"></ul>
+                        </nav>
+                    
+                        <br>
+                        <h2>1. 寮食Botを作ろうと思った経緯</h2>
+                        <p>そもそも、今日の献立を見ようとすると</p>
+                        <p>1.新居浜高専学寮HPにアクセス</p>
+                        <p>2.学寮食堂のページへ</p>
+                        <p>3.今月のPDFファイルを選択</p>
+                        <p>4.今日の日付までスクロールする</p>
+                        <P>という手順が必要なんですよね。</P>
+                        <p>実際のPDF↓</p>
+                        <iframe src="https://www.off.niihama-nct.ac.jp/gakuryo-a/kondate/2024PDF/jan.pdf" style="width: 80%; height: 250px;"></iframe>
+                        <a href="https://www.off.niihama-nct.ac.jp/gakuryo-a/kondate/ryoushoku.html"><br>学寮食堂公式ページ</a>より
+                        <br>(https://www.off.niihama-nct.ac.jp/gakuryo-a/kondate/ryoushoku.html)
+                        <p></p>
+                        <p>今日の献立だけを見る には時間がかかるし、スマホだと少し見づらいんですよね。</p>
+                        <p>ということで寮食Botを作ろうと思いました。</p>
+
+                        <h2>2. LINE版寮食Bot</h2>
+                        <P>まず、初めに考えたのがLINEで毎朝、自動で寮食の献立を送信するというものです。</P>
+                        <p>いろいろググっていると、Googleスプレッドシートのデータを自動でメール送信すると記事と、
+                            メールをLINEに自動転送する記事を見つけたので、
+                            それらを参考にスプレッドシートに打ち込んだ寮食の献立データをメールで送信するというプログラムを作りました。
+                        </p>
+                        <br>
+                        <img src="images/20250222/01.webp" alt="LINE版寮食Bot" style="width: 300px; display: block; margin: auto;">
+                        <p><br>送られてくるLINEはこんな感じです。</p>
+                        <p>これを作ってから1年半以上問題なく毎日動いてます。</p>
+                        <p>献立を手軽に見れるようになりとても便利になりました。</p>
+                        <p>2025年3月31日でLINE Notifyのサービス終了で使えなくなるのつらい (TT) </p> 
+                        
+                        <h2>3. Webサイト版</h2>
+                        <p>LINE版寮食Botが使えなくなるので、作りました。</p>
+                        <p>GithubPagesというものを使っているので、サーバー代がかからずにできて良かった。</p>
+                        <p>仕組みは.CSV(各項目が,で区切られたデータ)を読み込みHTML内で表示するというものです。</p>
+                        <p>これもググって参考になりそうなものを見つけ、何とか動くものを作りました。</p>
+                        <p>(HTMLとCSS初心者なのでおかしな部分あるもです。)</p>
+                        <ul style="margin-left: 30px;">
+                            <li><a href="https://0x53me.github.io/today">今日の献立ページ</a></li>
+                            <li><a href="https://0x53me.github.io/month">今月の献立ページ</a></li>
+                        </ul><br>
+                        <p>今後はコメントや評価機能もつけたいなと思ってます。</p>
+                        <p>要望あれば連絡ください。</p>
+
+                    
+                        <h2>4. X版寮食Bot</h2>
+                        <p>3. Webサイト版 で作った、データをiPadにもともと入ってある「ショートカット」というアプリを使って取得し、Xにポストするというものです。</p>
+                        <p>言葉だとわかりにくいので写真を見せるとこんな感じ、</p>
+                        <img src="images/20250222/03.webp" alt="shortcutapp" style="width: 100%;">
+                        <p><br>で、実際の投稿がこんな感じ<br></p>
+                        <img src="images/20250222/04.webp" alt="x_post" style="width: 100%;">
+                        <p><br>ただ、Xの投稿に関しては半分手動みたいなとこがあるので急に投稿しなくなるかも。</p>
+                    
+                        <h2>5. 最後に</h2>
+                        <p>全部自己満で作ってます。</p>
+                        <p>使ってくれるとうれしいです。</p>
+
+                        <script src="js/script.js"></script>
+                </div>
             </article>
         </div>
         <!--footer-->
