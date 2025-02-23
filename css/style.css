@@ -121,7 +121,7 @@ p{
 }
 /*today.html*/
 .today_menu{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 .today_menu,p{
     line-height: 150%;
@@ -134,6 +134,127 @@ p{
 .today_btn{
     margin-left: 50px;
 }
+/*News*/
+.blog {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.blog ul {
+    list-style: none;
+    padding: 0;
+}
+
+.blog li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.blog-img {
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.blog-img img {
+    border-radius: 5px;
+}
+
+.blog-info {
+    flex-grow: 1;
+}
+
+.blog-info h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+}
+
+.blog-info h3 a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.blog-info h3 a:hover {
+    color: #0073e6;
+}
+
+.blog-info span {
+    display: block;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.blog-info p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #0073e6;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #005bb5;
+}
+    /*article*/
+    .post{
+        margin-bottom: 3rem;
+    }
+    .post-title{
+        font-weight: normal;
+        margin-bottom: 1.25rem;
+    }
+    .post-info{
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .post-cat{
+        display: flex;
+        gap: .5rem;
+        list-style: none;
+    }
+    .post-cat a {
+        color: #432;
+        background-color:rgb(238, 238, 238);
+        border-radius: 8px;
+        font-size: .875rem;
+        text-decoration: none;
+        padding: .5rem .75rem   ;
+    }
+    .post-cat a:hover{
+        background-color: #c9c2bc;
+    }
+    .post-date{
+        font-size: .875rem;
+    }
+    .post-thumbnail{
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+    .post p{
+        margin-bottom: 1.5rem;
+        line-height: 2;
+    }
+    .wrapper{
+        max-width: 1120px;
+        margin:auto;
+        padding:0 1.5rem;
+    }
+
 /*version.html*/
 .version-list {
     list-style: none;
