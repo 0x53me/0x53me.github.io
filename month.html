@@ -18,10 +18,10 @@
         <script>
             async function loadCSV() {
             const today = new Date();
-            const yaer = today.getFullYear();
+            const year = today.getFullYear();
             const month = today.getMonth()+1;
             const date = today.getDate();
-            const h1 = yaer + "年" + month + "月";
+            const h1 = year + "年" + month + "月";
             let file_date = "csv/DB_" + year + "_" + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
