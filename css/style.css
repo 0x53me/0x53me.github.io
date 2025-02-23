@@ -242,6 +242,8 @@ p{
         font-size: .875rem;
     }
     .post-thumbnail{
+        margin-left: 10%;
+        width: 50%;
         border-radius: 16px;
         margin-bottom: 1.5rem;
     }
