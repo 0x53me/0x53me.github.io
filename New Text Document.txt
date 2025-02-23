@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="shift-jis">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>新居浜高専 寮食 今日の献立</title>
+        <!--ファビコン-->
+        <link rel="icon" type="image/png" href="images/bacon.png">
+        <!--CSS-->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+        <style>
+            html{
+                line-height: 1.2rem;
+            }
+            table th, table td{
+                border: solid 1px black;
+            }
+            p{
+                text-align: center;
+            }
+        </style>
+        <script>
+            async function loadCSV() {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth()+1;
+            var date = today.getDate();
+            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
+            let file_date = "csv/DB_" + year + "_" + month + ".csv";
+            const data = await fetch(file_date);
+            const resCSV = await data.text();
+            const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
+            const filteredData = dataCSV.filter(row => row[1]==date);
+            var display_data = filteredData.map(data => `<br>[朝食]<br>・${data[2]}<br>・${data[3]}<br>・${data[4]}<br><br>[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br><br>${data[11]}`).join('');
+            document.getElementById('display_data').insertAdjacentHTML('beforeend',display_data);
+            document.getElementById('display_date').insertAdjacentHTML('beforeend',display_date);
+            }
+            loadCSV();
+        </script>
+                    <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div class="cover cover-home">
+        <!--header-->
+        <header class="header">
+            <h1 style="font-family: Kosugi Maru,serif;"><a href="index.html"><img class="logo" src="images/gohan.png" alt="Home"></a> 新居浜高専学寮食堂(非公式)</h1>
+            <nav class="nav">
+                <span class="nav_toggle">
+                    <i></i><i></i><i></i>
+                </span>
+                <ul class="nav_menu_ul">
+                    <li class="nav_menu_li"><a href="/">Home</a></li>
+                    <li class="nav_menu_li"><a href="/News.html">News</a></li>
+                    <li class="nav_menu_li"><a href="/Version.html">Version</a></li>
+                    <li class="nav_menu_li"><a href="/Archive.html">Archive</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--content-->
+        </div>
+        <div class="content wrap">
+            <div class="today_menu"><br><br>
+                <p id="display_date"></p>
+                <p id="display_data"></p>
+            </div>
+            <div class="tomorrow_btn">
+                <a class="btn tomorrow_btn" href="tomorrow.html">明日の献立を見る</a>
+            </div>
+        </div>
+        <!--footer-->
+        <footer class="footer">
+            <div class="copyright">
+                <small>&copy;2025 0x53me</small>
+            </div>
+        </footer>
+    </body>
+</html>
