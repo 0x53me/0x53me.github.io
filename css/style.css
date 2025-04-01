@@ -84,10 +84,15 @@ p{
 
 /* ボタンを横並びにする */
 .btn-container {
-    display: flex;
+    display:grid;
     gap: 40px;
     justify-content: center;
     margin-top: 20px;
+}
+@media(min-width:500px){
+    .btn-container{
+        display: flex;
+    }
 }
 
 
