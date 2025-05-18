@@ -1,43 +1,95 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="shift-jis">
-        <title>X_Post</title>
-        <link rel="icon" type="image/png" href="images/bacon.png">
-        <script>
-            async function loadCSV() {
+<head>
+    <meta charset="shift-jis">
+    <title>X_Post</title>
+    <link rel="icon" type="image/png" href="images/bacon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        p {
+            margin: 0.5rem 0;
+        }
+
+        #display_data {
+            white-space: pre-line;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        #text {
+            display: none;
+        }
+
+        #PostButton {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        #PostButton button {
+            width: 100%;
+            max-width: 300px;
+            padding: 1rem;
+            font-size: 1.2rem;
+            background-color: #1da1f2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #PostButton button:hover {
+            background-color: #0d95e8;
+        }
+    </style>
+    <script>
+        async function loadCSV() {
             var today = new Date();
             var year = today.getFullYear();
-            var month = today.getMonth()+1;
+            var month = today.getMonth() + 1;
             var date = today.getDate();
-            var display_title = '新居浜高専 寮食Bot\n\n'
+            var display_title = '新居浜高専 寮食Bot\n\n';
             var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です\n';
             let file_date = "csv/DB_" + year + "_" + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
             const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
-            const filteredData = dataCSV.filter(row => row[1]==date);
+            const filteredData = dataCSV.filter(row => row[1] == date);
             var display_data = filteredData.map(data => `\n[朝食]\n・${data[2]}\n・${data[3]}\n・${data[4]}\n\n[昼食]\n・${data[5]}\n・${data[6]}\n\n[夕食]\n・${data[7]}\n・${data[8]}\n・${data[9]}\n\n${data[11]}`).join('');
-            document.getElementById('display_data').insertAdjacentHTML('beforeend',display_data);
-            document.getElementById('display_date').insertAdjacentHTML('beforeend',display_date);
+            document.getElementById('display_data').insertAdjacentHTML('beforeend', display_data);
+            document.getElementById('display_date').insertAdjacentHTML('beforeend', display_date);
 
             var text = display_title + display_date + display_data;
-            document.getElementById('text').insertAdjacentHTML('beforeend',text);
+            document.getElementById('text').insertAdjacentHTML('beforeend', text);
             var PostUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
             document.getElementById("PostButton").href = PostUrl;
+        }
+        loadCSV();
+    </script>
+</head>
 
-            }
-            loadCSV();
-        </script>
-    </head>
-
-    <body>
-        <p>新居浜高専 寮食Bot</p>
-        <p id="display_date"></p>
-        <p id="display_data"></p>
-        <p id="text"></p>
-        <a id="PostButton" href="#" target="_blank">
-            <button>Post</button>
-        </a>
-    </body>
+<body>
+    <p><strong>新居浜高専 寮食Bot</strong></p>
+    <p id="display_date"></p>
+    <div id="display_data"></div>
+    <p id="text"></p>
+    <a id="PostButton" href="#" target="_blank">
+        <button>Twitter に投稿</button>
+    </a>
+</body>
 </html>
