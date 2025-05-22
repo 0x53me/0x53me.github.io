@@ -72,7 +72,7 @@
             var month = today.getMonth() + 1;
             var date = today.getDate()+1;
             var display_title = '新居浜高専 寮食Bot\n\n';
-            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です\n';
+            var display_date = '明日(' + year + '年' + month + '月' + date + '日)の献立です\n';
             let file_date = "csv/DB_" + year + "_" + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
