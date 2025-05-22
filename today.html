@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="shift-jis">
+<head>
+    <meta charset="shift-jis">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>新居浜高専 寮食 今日の献立</title>
+        <title>新居浜高専 寮食 明日の献立</title>
         <!--ファビコン-->
         <link rel="icon" type="image/png" href="images/bacon.png">
         <!--CSS-->
@@ -13,62 +13,88 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-        <script>
-            async function loadCSV() {
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        p {
+            margin: 0.5rem 0;
+        }
+
+        #display_data {
+            white-space: pre-line;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        #text {
+            display: none;
+        }
+
+        #PostButton {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        #PostButton button {
+            width: 100%;
+            max-width: 300px;
+            padding: 1rem;
+            font-size: 1.2rem;
+            background-color: #1da1f2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #PostButton button:hover {
+            background-color: #0d95e8;
+        }
+    </style>
+    <script>
+        async function loadCSV() {
             var today = new Date();
             var year = today.getFullYear();
-            var month = today.getMonth()+1;
+            var month = today.getMonth() + 1;
             var date = today.getDate();
-            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
+            var display_title = '新居浜高専 寮食Bot\n\n';
+            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です\n';
             let file_date = "csv/DB_" + year + "_" + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
             const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
-            const filteredData = dataCSV.filter(row => row[1]==date);
-            var display_data = filteredData.map(data => `<br>[朝食]<br>・${data[2]}<br>・${data[3]}<br>・${data[4]}<br><br>[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br><br>${data[11]}`).join('');
-            document.getElementById('display_data').insertAdjacentHTML('beforeend',display_data);
-            document.getElementById('display_date').insertAdjacentHTML('beforeend',display_date);
-            }
-            loadCSV();
-        </script>
-                    <link rel="stylesheet" href="css/style.css">
-    </head>
+            const filteredData = dataCSV.filter(row => row[1] == date);
+            var display_data = filteredData.map(data => `\n[朝食]\n・${data[2]}\n・${data[3]}\n・${data[4]}\n\n[昼食]\n・${data[5]}\n・${data[6]}\n\n[夕食]\n・${data[7]}\n・${data[8]}\n・${data[9]}\n\n${data[11]}`).join('');
+            document.getElementById('display_data').insertAdjacentHTML('beforeend', display_data);
+            document.getElementById('display_date').insertAdjacentHTML('beforeend', display_date);
+        }
+        loadCSV();
+    </script>
+</head>
 
-    <body>
-        <div class="cover cover-home">
-        <!--header-->
-        <header class="header">
-            <h1 style="font-family: Kosugi Maru,serif;"><a href="index.html"><img class="logo" src="images/gohan.png" alt="Home"></a> 新居浜高専学寮食堂(非公式)</h1>
-            <!--<nav class="nav">
-                <span class="nav_toggle">
-                    <i></i><i></i><i></i>
-                </span>
-                <ul class="nav_menu_ul">
-                    <li class="nav_menu_li"><a href="/">Home</a></li>
-                    <li class="nav_menu_li"><a href="/News.html">News</a></li>
-                    <li class="nav_menu_li"><a href="/Version.html">Version</a></li>
-                    <li class="nav_menu_li"><a href="/Archive.html">Archive</a></li>
-                </ul>
-            </nav>-->
-        </header>
-        <!--content-->
-        </div>
-        <div class="content wrap honbun">
-            <div class="today_menu"><br><br>
-                <p id="display_date"></p>
-                <p id="display_data"></p>
-            </div><br>
-            <div class="tomorrow_btn">
-                <a class="btn tomorrow_btn" href="tomorrow.html">明日の献立を見る</a>
-            </div>
-            <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://0x53me.github.io" data-color="default" data-size="large" data-count="true" data-ver="3" style="display: none;"></div>
-        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-        </div>
-        <!--footer-->
-        <footer class="footer">
-            <div class="copyright">
-                <small>&copy;2025 0x53me</small>
-            </div>
-        </footer>
-    </body>
+<body>
+    <div class="content wrap honbun">
+    <h2 style="margin-left: 0%;"><strong>新居浜高専 寮食Bot</strong></h2>
+    <h3 id="display_date"></h3>
+    <div id="display_data"></div>
+    <p id="text"></p>
+    <a id="PostButton" href="tomorrow.html">
+        <button>明日の献立を見る</button>
+    </a>
+    </div>
+</body>
 </html>
