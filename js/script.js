@@ -1,3 +1,23 @@
+const burger = document.querySelector(".burger");
+const nav = document.querySelector(".nav-links");
+const navLinks = document.querySelectorAll(".nav-links li");
+
+burger.addEventListener("click" , () =>{
+    nav.classList.toggle("nav-active");
+
+    navLinks.forEach((link, index) => {
+        if(link.style.animation){
+            link.style.animation="";
+        }else{
+        link.style.animation = `navLinksFade 0.5s ease ${index/7 + 0.3}s forwards`;
+        }
+    });
+    burger.classList.toggle("toggle");
+});
+
+
+
+
 // 目次を自動生成するスクリプト
 document.addEventListener("DOMContentLoaded", function() {
     const tocList = document.getElementById("toc-list");
